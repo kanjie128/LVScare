@@ -3,8 +3,8 @@ package care
 import (
 	"time"
 
-	"github.com/fanux/LVScare/create"
-	"github.com/fanux/LVScare/service"
+	"github.com/kanjie128/LVScare/create"
+	"github.com/kanjie128/LVScare/service"
 )
 
 //VsAndRsCare is

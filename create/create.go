@@ -3,8 +3,8 @@ package create
 import (
 	"fmt"
 
-	"github.com/fanux/LVScare/service"
-	"github.com/fanux/LVScare/utils"
+	"github.com/kanjie128/LVScare/service"
+	"github.com/kanjie128/LVScare/utils"
 )
 
 //VsAndRsCreate is

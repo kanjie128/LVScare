@@ -9,6 +9,7 @@ import (
 
 	"github.com/vishvananda/netlink/nl"
 	"github.com/vishvananda/netns"
+	"golang.org/x/sys/unix"
 )
 
 const (
@@ -102,11 +103,11 @@ func New(path string) (*Handle, error) {
 	}
 	// Add operation timeout to avoid deadlocks
 	tv := syscall.NsecToTimeval(netlinkSendSocketTimeout.Nanoseconds())
-	if err := sock.SetSendTimeout(&tv); err != nil {
+	if err := sock.SetSendTimeout(&unix.Timeval{Sec: tv.Sec, Usec: tv.Usec}); err != nil {
 		return nil, err
 	}
 	tv = syscall.NsecToTimeval(netlinkRecvSocketsTimeout.Nanoseconds())
-	if err := sock.SetReceiveTimeout(&tv); err != nil {
+	if err := sock.SetReceiveTimeout(&unix.Timeval{Sec: tv.Sec, Usec: tv.Usec}); err != nil {
 		return nil, err
 	}
 
